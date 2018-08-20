@@ -157,9 +157,17 @@ namespace MatchingGame
             }
 
             timer2.Stop();
-            MessageBox.Show("wow. good job. great effort.\n it only took you " + time + " seconds.\nHighscore: " + HighScore(), 
+            if (HighScore() < time)
+            {
+                MessageBox.Show("wow. good job. great effort.\n it only took you " + time + " seconds.\nHighscore: " + HighScore(),
                 "you're really going places.");
-            Close();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("NEW HIGH SCORE HOLY SHIT!!!\nHigh Score: " + HighScore());
+            }
+            
         }
 
         private static void Log(int logMessage, TextWriter w)
